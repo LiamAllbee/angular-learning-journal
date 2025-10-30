@@ -17,3 +17,4 @@ This journal reflects my learning process, practice, and progress. Also is basic
 - npm
 - tsc
 - angular
+- angular CLI
