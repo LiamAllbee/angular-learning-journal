@@ -8,11 +8,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let tempSalesPerson of salesPersonList">
+        @for(tempSalesPerson of salesPersonList; track tempSalesPerson.email) {
+        <tr>
             <td>{{ tempSalesPerson.firstName }} </td>
             <td>{{ tempSalesPerson.lastName }} </td>
             <td>{{ tempSalesPerson.email }} </td>
             <td>{{ tempSalesPerson.salesVolume }} </td>
         </tr>
+        }
     </tbody>
 </table>
