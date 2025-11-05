@@ -5,15 +5,23 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Sales Volume</th>
+            <th>Met Quota?</th>
         </tr>
     </thead>
     <tbody>
         @for(tempSalesPerson of salesPersonList; track tempSalesPerson.email) {
-        <tr>
+        <tr [ngClass]="{'highlight': tempSalesPerson.salesVolume >= 60000}">
             <td>{{ tempSalesPerson.firstName }} </td>
             <td>{{ tempSalesPerson.lastName }} </td>
             <td>{{ tempSalesPerson.email }} </td>
-            <td>{{ tempSalesPerson.salesVolume }} </td>
+            <!-- Conditional expression to translate sales volume to a USD format. Uses a pipe -> '|' -->
+            <td>{{ tempSalesPerson.salesVolume | currency:'USD' }} </td>
+            <!-- Conditional expression to evaluate whether or not specific salesPerson reached a required sales volume -->
+            @if (tempSalesPerson.salesVolume >= 60000) {
+                <td>Yes</td>
+            } @else {
+                <td>No</td>
+            }
         </tr>
         }
     </tbody>
